@@ -10,8 +10,8 @@ class Product(ABC):
         self.stock = int(stock)
         self.supplier: Supplier = supplier
 
-        if self.price < 0:
-            raise ValueError("Price cannot be negative.")
+        if self.price <= 0:
+            raise ValueError("Product price must be greater than zero.")
         if self.stock < 0:
             raise ValueError("Stock cannot be negative.")
 
