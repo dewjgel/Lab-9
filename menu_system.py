@@ -181,7 +181,7 @@ def add_product(inventory):
 
     while True:
         try:
-            price = float(input("Price: "))
+            price = get_positive_float("Price: ")
 
             if price < 0:
                 print("Price cannot be negative.")
@@ -288,6 +288,24 @@ def show_product_details(product: Product) -> None:
     print("Supplier:")
     product.display_supplier_information()
     print("--------------------------------")
+
+
+def get_positive_float(prompt: str) -> float:
+
+    while True:
+
+        try:
+            value = float(input(prompt))
+
+            if value <= 0:
+                print("Please enter a number greater than zero.")
+                continue
+
+            return value
+
+        except ValueError:
+            print("Please enter a valid number, e.g. 12.50")
+
 
 
 def main():
