@@ -1,5 +1,9 @@
+import json
 from product_factory import ProductFactory
-
+from physical_product import PhysicalProduct
+from digital_product import DigitalProduct
+from can_be_shipped import CanBeShipped
+from product import Product
 from inventory import Inventory
 from supplier import Supplier
 
@@ -43,33 +47,46 @@ DEFAULT_INVENTORY = [
     }
 ]
 
+
 def create_product(item: dict) -> Product:
 
     supplier_data = item["supplier"]
-    supplier = Supplier(supplier_data["supplier_id"], supplier_data["name"], supplier_data["contact_email"])
-    
+
+    supplier = Supplier(
+        supplier_data["supplier_id"],
+        supplier_data["name"],
+        supplier_data["contact_email"]
+    )
+
     product_type = item["type"].lower()
 
     if product_type == "physical":
-        return PhysicalProduct(
+
+        return ProductFactory.create(
+            product_type,
             item["id"],
             item["name"],
             item["price"],
             item["stock"],
-            item["weight"],
-            supplier
+            supplier,
+            weight=item["weight"]
         )
+
     elif product_type == "digital":
-        return DigitalProduct(
+
+        return ProductFactory.create(
+            product_type,
             item["id"],
             item["name"],
             item["price"],
             item["stock"],
-            item["download_size"],
-            supplier
+            supplier,
+            download_size=item["download_size"]
         )
+
     else:
-        raise ValueError("Unknown product type.")
+        raise ValueError(f"Unknown product type: {product_type}")
+
 
 def load_inventory():
 
