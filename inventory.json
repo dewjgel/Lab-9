@@ -37,5 +37,18 @@
             "name": "Software Solutions",
             "contact_email": "software@example.com"
         }
+    },
+    {
+        "type": "digital",
+        "id": "D003",
+        "name": "Digital Product 2",
+        "price": 500.0,
+        "stock": 50,
+        "download_size": 1000.0,
+        "supplier": {
+            "supplier_id": "S003",
+            "name": "General Supplies",
+            "contact_email": "general@example.com"
+        }
     }
 ]
