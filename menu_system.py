@@ -228,7 +228,8 @@ def add_product(inventory):
     print("2. Digital Product")
 
     product_type = input("Enter option: ").strip()
-
+    supplier = Supplier("S003", "General Supplies", "general@example.com")
+    
     try:
         if product_type == "1":
             weight = float(input("Weight (kg): "))
@@ -236,7 +237,7 @@ def add_product(inventory):
             if weight < 0:
                 print("Weight cannot be negative.")
                 return
-            product = ProductFactory.create("physical",product_id,name,price,stock,None,weight=weight
+            product = ProductFactory.create("physical",product_id,name,price,stock,supplier,weight=weight
 )
 
         elif product_type == "2":
@@ -246,7 +247,7 @@ def add_product(inventory):
                 print("Download size cannot be negative.")
                 return
 
-            product = ProductFactory.create("digital",product_id,name,price,stock,None,download_size=download_size
+            product = ProductFactory.create("digital",product_id,name,price,stock,supplier,download_size=download_size
 )
 
         else: 
