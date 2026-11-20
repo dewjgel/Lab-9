@@ -1,0 +1,173 @@
+commit 3d71c47abeb684dfcfd77fb465c3b604c073cf93
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 21:30:40 2026 +0800
+
+    added uml diagram
+
+commit b482c82dc57feef9f949d9c05741eef1a723aba1
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:58:30 2026 +0800
+
+    tested code
+
+commit 6a783a609539b78435b92b700732ca5c778dde1a
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:57:12 2026 +0800
+
+    updated supplier
+
+commit fd41a05f50bcd1f3c41a09cc28c389d44e105d31
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:47:05 2026 +0800
+
+    gitignore
+
+commit 948f3683ed63cc1a388dfdc853dcc88e5542ecde
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:40:45 2026 +0800
+
+    added test_factory.py
+
+commit 4d85bbd7b8a77411f7ee5bb3e0879b5c4b90ae4b
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:39:16 2026 +0800
+
+    added test_discount.py
+
+commit bf971291b68f75d58e883b36e4988f29eccf2c79
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:36:55 2026 +0800
+
+    updated
+
+commit a655378bd3d8dd534c18d8694e1fd566640d3f35
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:30:18 2026 +0800
+
+    updated menu_system 2
+
+commit 21d0154c3522142d28b020e076d5bd505c6baaa4
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:27:15 2026 +0800
+
+    Updated menu_system
+
+commit c929cc7e16cccb89ab6db8764d47a72409c3f885
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:25:43 2026 +0800
+
+    completed load products
+
+commit 6113c9624abf73f7d097d4e0ba1cd3dcb1741ed2
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:23:28 2026 +0800
+
+    created load products
+
+commit f6d11a2c29dcb37a9edb885a766c48c997ab3610
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:22:50 2026 +0800
+
+    created products.csv
+
+commit ba03ad8704162f8b77ce07e831453f6ad5d67c72
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:21:42 2026 +0800
+
+    exception handling for user input
+
+commit 0da1238e9eaa70e229ce2a4a65035613589a67b0
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:16:20 2026 +0800
+
+    adjusted product.py validation
+
+commit e4af7a9b5052b3489b6d4d45f57a266d3d638201
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:14:29 2026 +0800
+
+    completed product factory
+
+commit 463a68d0f89ecc87c830cc9789b6baffefb32e7d
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:10:18 2026 +0800
+
+    created product factory
+
+commit f396b7d00b42f0345327810dd7ce603b8db3be57
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:09:34 2026 +0800
+
+    updated order.py according to discount changes
+
+commit 9e43bb525ed6f7af95d9fa2abfbd2de4720d8122
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:05:09 2026 +0800
+
+    completed student discount
+
+commit 325ea9918d3bcd621de752288e4dd47d95540ba4
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:04:42 2026 +0800
+
+    created student discount
+
+commit bcd5cf43a5d7f8b693b6e0fc0192cac2ebfa3359
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:03:46 2026 +0800
+
+    completed bulk discount
+
+commit 7282b3e0013eee411f5ba602af9a9fff415fd88c
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:02:15 2026 +0800
+
+    created bulk discount
+
+commit eb03b8706e8f21631a8787a26bf048c005f23e02
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 20:01:44 2026 +0800
+
+    completed percentage discount
+
+commit ae0abbfb171d90460c63ba19c6497468d5d2c4e1
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 19:57:57 2026 +0800
+
+    created percentage discount
+
+commit 243bbdace07e57a046cc2adb144152ae05f73ae7
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 19:57:16 2026 +0800
+
+    completed no discount
+
+commit 3debb0159b8ebcef1a1d736dafc010f88583e9ed
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 19:56:51 2026 +0800
+
+    created no discount
+
+commit df41945a784cdf69dfb92b401172846371013b58
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 19:54:11 2026 +0800
+
+    completed discount strategy
+
+commit 51809a8a327a61067ac99c53b7a9e5c76ce2c319
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 19:53:26 2026 +0800
+
+    created discount strategy file
+
+commit 5f9004844f82d0ada2e7f9b9d6646b811d086e54
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 19:41:25 2026 +0800
+
+    name changes
+
+commit c684cb8d5f8ce7e354bbbe9fa62bb2d5e3ff24a1
+Author: 2603195 <2603195@sit.singaporetech.edu.sg>
+Date:   Fri Nov 20 19:38:10 2026 +0800
+
+    Added Lab 8 files
