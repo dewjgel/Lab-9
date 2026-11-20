@@ -236,7 +236,8 @@ def add_product(inventory):
             if weight < 0:
                 print("Weight cannot be negative.")
                 return
-            product = PhysicalProduct(product_id, name, price, stock, weight)
+            product = ProductFactory.create("physical",product_id,name,price,stock,None,weight=weight
+)
 
         elif product_type == "2":
             download_size = float(input("Enter Download Size (MB): "))
@@ -245,7 +246,8 @@ def add_product(inventory):
                 print("Download size cannot be negative.")
                 return
 
-            product = DigitalProduct(product_id, name, price, stock, download_size)
+            product = ProductFactory.create("digital",product_id,name,price,stock,None,download_size=download_size
+)
 
         else: 
             print("Invalid product type.")
