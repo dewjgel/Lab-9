@@ -1,12 +1,15 @@
-import json
+from product_factory import ProductFactory
 
-from product import Product
-from physical_product import PhysicalProduct
-from digital_product import DigitalProduct
-from can_be_shipped import CanBeShipped
 from inventory import Inventory
 from supplier import Supplier
+
+from percentage_discount import PercentageDiscount
+from bulk_discount import BulkDiscount
+from student_discount import StudentDiscount
+from no_discount import NoDiscount
+
 from order import Order
+
 
 FILE_NAME = "inventory.json" 
 
