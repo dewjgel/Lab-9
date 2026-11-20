@@ -1,0 +1,242 @@
+@startuml InventoryManagementSystem
+
+title Inventory Management System - UML Class Diagram
+
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+skinparam shadowing false
+skinparam packageStyle rectangle
+
+' =========================
+' PRODUCT CLASSES
+' =========================
+
+package "Product Management" {
+
+    abstract class Product {
+        - product_id: str
+        - name: str
+        - price: float
+        - stock: int
+        - supplier: Supplier
+
+        + __init__(product_id, name, price, stock, supplier)
+        + update_stock(quantity: int): None
+        + display_information(): None
+        + display_supplier_information(): None
+        {abstract} + get_fufillment_method(): str
+    }
+
+    class PhysicalProduct {
+        - weight: float
+
+        + __init__(product_id, name, price, stock, weight, supplier)
+        + display_information(): None
+        + get_fufillment_method(): str
+        + calculate_shipping_cost(): float
+    }
+
+    class DigitalProduct {
+        - download_size: float
+
+        + __init__(product_id, name, price, stock, download_size, supplier)
+        + display_information(): None
+        + get_fufillment_method(): str
+    }
+
+    interface CanBeShipped {
+        + calculate_shipping_cost(): float
+    }
+
+    class ProductFactory {
+        {static} + create(product_type, product_id, name, price, stock_quantity, supplier, **kwargs): Product
+    }
+
+    class Supplier {
+        - supplier_id: str
+        - name: str
+        - contact_email: str
+
+        + __init__(supplier_id, name, contact_email)
+        + display_information(): None
+    }
+
+    Product <|-- PhysicalProduct
+    Product <|-- DigitalProduct
+
+    CanBeShipped <|.. PhysicalProduct
+
+    Product --> "1" Supplier : associated with
+
+    ProductFactory ..> PhysicalProduct : creates
+    ProductFactory ..> DigitalProduct : creates
+}
+
+' =========================
+' INVENTORY
+' =========================
+
+package "Inventory Management" {
+
+    class Inventory {
+        - products: list<Product>
+
+        + __init__()
+        + add_product(product: Product): bool
+        + remove_product(product_id: str): bool
+        + search_product(product_id: str): Product
+        + display_inventory(): None
+        + get_products(): list<Product>
+    }
+
+    Inventory "1" o-- "0..*" Product : contains
+}
+
+' =========================
+' DISCOUNT STRATEGY
+' =========================
+
+package "Discount Management" {
+
+    abstract class DiscountStrategy {
+        {abstract} + apply(total: float): float
+    }
+
+    class NoDiscount {
+        + apply(total: float): float
+    }
+
+    class PercentageDiscount {
+        - percentage: float
+
+        + __init__(percentage: float)
+        + apply(total: float): float
+    }
+
+    class BulkDiscount {
+        - threshold: float
+        - amount: float
+
+        + __init__(threshold: float, amount: float)
+        + apply(total: float): float
+    }
+
+    class StudentDiscount {
+        + apply(total: float): float
+    }
+
+    DiscountStrategy <|-- NoDiscount
+    DiscountStrategy <|-- PercentageDiscount
+    DiscountStrategy <|-- BulkDiscount
+    DiscountStrategy <|-- StudentDiscount
+}
+
+' =========================
+' ORDER MANAGEMENT
+' =========================
+
+package "Order Management" {
+
+    class Order {
+        - order_id: str
+        - order_lines: list<OrderLine>
+        - discount: DiscountStrategy
+
+        + __init__(order_id, discount)
+        + set_discount(discount: DiscountStrategy): None
+        + add_order_line(product: Product, quantity: int): None
+        + remove_order_line(index: int): bool
+        + calculate_total(): float
+        + display_order(): None
+    }
+
+    class OrderLine {
+        - product: Product
+        - quantity: int
+
+        + __init__(product, quantity)
+        + calculate_subtotal(): float
+        + display_information(): None
+    }
+
+    Order "1" *-- "0..*" OrderLine : contains
+    OrderLine --> "1" Product : references
+    Order --> "1" DiscountStrategy : uses
+}
+
+' =========================
+' FILE HANDLING
+' =========================
+
+package "Data Persistence" {
+
+    class InventoryLoader {
+        + create_product(item: dict): Product
+        + load_inventory(): Inventory
+        + create_default_inventory(): Inventory
+        + save_inventory(inventory: Inventory): None
+    }
+
+    class CSVLoader {
+        + load_products(path, inventory, supplier): None
+    }
+
+    InventoryLoader ..> ProductFactory : uses
+    InventoryLoader ..> Inventory : loads / saves
+    CSVLoader ..> ProductFactory : uses
+    CSVLoader ..> Inventory : adds products
+}
+
+' =========================
+' APPLICATION
+' =========================
+
+package "Application Layer" {
+
+    class Main {
+        + display_menu(): None
+        + add_product(inventory): None
+        + update_product_stock(inventory): None
+        + search_product(inventory): None
+        + show_product_details(product): None
+        + get_positive_float(prompt): float
+        + main(): None
+    }
+
+    Main ..> Inventory : manages
+    Main ..> ProductFactory : creates products
+    Main ..> CanBeShipped : checks shipping
+    Main ..> InventoryLoader : loads / saves
+}
+
+' =========================
+' TEST CLASSES
+' =========================
+
+package "Testing" {
+
+    class TestDiscount
+    class TestFactory
+    class TestRelationships
+
+    TestDiscount ..> Order
+    TestDiscount ..> DiscountStrategy
+
+    TestFactory ..> ProductFactory
+
+    TestRelationships ..> Inventory
+    TestRelationships ..> Order
+    TestRelationships ..> Product
+}
+
+legend right
+  |= Relationship |= Meaning |
+  | <|-- | Inheritance |
+  | <|.. | Interface implementation |
+  | --> | Association |
+  | ..> | Dependency |
+  | o-- | Aggregation |
+  | *-- | Composition |
+endlegend
+
+@enduml
